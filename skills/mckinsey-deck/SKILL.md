@@ -46,7 +46,7 @@ never in a project-local or sibling-skill fork. One engine, zero drift.
 - `heroes([(num, label), ...])` — 4-up serif stat strip.
 - `prose_slide(title, deck, themes, src, cols=2, note=None)` — "bold theme + paragraph" blocks (the McKinsey prose page). `themes=[(heading, paragraph_html), ...]`.
 - `essay_slide(title, deck, lead, paras, src, side=None)` — flowing two-column prose + optional side rail.
-- `table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys=())` — navy-header table; `fill=True` stretches rows to fill; `bold_keys` highlights total rows.
+- `table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys=(), extra=None)` — navy-header table, uniform row heights (header 34px / rows 52px, never stretched); `bold_keys` highlights total rows; `extra=` takes a content block (e.g. `heroes([...])`) to fill a sparse page by composition.
 - `decision_slide(page, src)` — renders a structured exhibit (buildup/breakdown/scenarios + assumptions + READ).
 - `donut_block(...)`, `bars_chart(...)`, `heatmap_block(...)` — titled chart blocks for a page's side rail (charts ride beside their analysis; never alone on a page); `charts_slide(...)` for the rare full-canvas exhibit. Low-level: `donut_svg(...)`, heatmap `hcell(...)`.
 - `sources_register(url_set, selected_rows, src)` — the numbered, clickable source appendix.
