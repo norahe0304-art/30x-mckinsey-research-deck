@@ -1,4 +1,4 @@
-# 30x-mckinsey-deck
+# 30x-mckinsey-research-deck
 
 > **一条指令，产出一份敢被挑战的麦肯锡级市场研究 deck。**
 > McKinsey-grade market research decks for Claude Code — adversarially verified numbers, 15 McKinsey methodologies as an executable workflow, built-in multi-agent pipeline.
@@ -6,8 +6,8 @@
 ## 安装
 
 ```bash
-npx 30x-mckinsey-deck            # 安装到 ~/.claude/skills/ (全局, 推荐)
-npx 30x-mckinsey-deck --project  # 只装进当前项目 ./.claude/skills/
+npx 30x-mckinsey-research-deck            # 安装到 ~/.claude/skills/ (全局, 推荐)
+npx 30x-mckinsey-research-deck --project  # 只装进当前项目 ./.claude/skills/
 ```
 
 装完在 Claude Code 里说一句：

@@ -1,4 +1,4 @@
-# 30x-mckinsey-deck - Claude Code 麦肯锡级市场研究 deck skill 发布包
+# 30x-mckinsey-research-deck - Claude Code 麦肯锡级市场研究 deck skill 发布包
 Node (零依赖 CLI) + Markdown skills + Python 渲染引擎
 
 <directory>
