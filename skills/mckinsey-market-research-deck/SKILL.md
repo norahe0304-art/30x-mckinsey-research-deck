@@ -126,8 +126,9 @@ These are user-confirmed preferences; treat as non-negotiable defaults:
   (donut / bar / heatmap mix) that each carry a real finding; chart titles are always centered.
 - **Notes pinned to a uniform bottom position** (`margin-top:auto`), same on every page.
 - **Nothing overlaps the footer line.** `.pad` reserves bottom clearance.
-- **Fill the page — <30% whitespace.** Spread content with even rhythm (`space-evenly`) or stretch
-  table rows (`table.fill`); never dump all whitespace at the bottom.
+- **Fill by composition, not by stretching — <30% whitespace.** Sparse prose spreads (`space-evenly`);
+  sparse tables keep their uniform row height (header 34px / rows 52px, deck-wide) and take an
+  `extra=` stat strip or more researched rows. Never balloon an element to hide thin content.
 - **No mid-word truncation.** Use the engine's `clipw()` (word boundary + "…"), never raw `[:n]`.
 - **Images:** clean cutout on pure white, no shadow, `mix-blend-mode:multiply` to blend; every image
   gets an italic caption. Cover/divider images are the only ones on navy.

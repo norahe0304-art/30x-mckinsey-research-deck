@@ -60,9 +60,10 @@ Headline = a full-sentence conclusion (the takeaway), never a topic label.
 - **Action-title headlines** — the headline states the conclusion.
 - **Notes pinned to a uniform bottom** (`margin-top:auto`) on every page.
 - **Nothing overlaps the footer.** `.pad` reserves bottom clearance.
-- **Fill the page — <30% whitespace.** The engine auto-scales essay/prose type across 3 tiers by
-  content length (sparse → larger/looser, dense → 12.5px default); tables stretch via `table.fill`.
-  If a page is still thin at the top tier, add content — never inflate fonts past the tiers.
+- **Fill by composition, not by stretching.** Essay/prose type auto-scales across 3 tiers by
+  content length. **Table row heights are uniform deck-wide (header 34px / rows 52px) and never
+  stretch** — fill a sparse table page via `table_slide(..., extra=heroes([...]))` or more rows.
+  If a page is still thin at the top tier, add content — never inflate type or rows.
 - **No mid-word truncation** — use `clipw()`, never raw `[:n]`.
 - **Flat** — no shadows/bevels (navy cover/divider are the only image-shadow exception).
 - **Images** — clean cutout on pure white, no shadow, blended via `mix-blend-mode:multiply`; every image gets an italic caption. Cover/divider images: anchored bottom-right, `height:100%` (never >100%, or the PDF clips the subject), left-edge gradient mask so the square dissolves into navy.

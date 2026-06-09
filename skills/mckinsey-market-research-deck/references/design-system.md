@@ -40,10 +40,10 @@ Color is rationed: navy structure + grays, blue/sky as small high-value accents.
 - hero stat strip `heroes([(num,label)...])` — 4-up serif numbers with hairline dividers.
 - `prose_slide(...)` — "bold theme + flowing paragraph" blocks in a grid, `space-evenly` to fill.
 - `essay_slide(...)` — flowing two-column prose + a side rail (donut + stat tiles + SO WHAT).
-- table slides — navy header row, hairline separators, first column bold navy. **Header height is
-  fixed (34px) on every table — it never participates in stretching.** Rows auto-tier by count:
-  ≤5 rows → 11.5px type, generous padding, row-height cap ~96px (deliberate spec-sheet rhythm);
-  6–9 → default; 10+ → compact. `table.fill` stretches data rows within these caps.
+- table slides — navy header row, hairline separators, first column bold navy. **Row heights are
+  sacred and uniform deck-wide: header 34px, data rows 52px, never stretched.** A sparse table does
+  not balloon to fill the page — the page is filled by composition: pass `extra=` (a `heroes()`
+  stat strip, a widened READ) to `table_slide`. Tables answer for truth, not for layout.
 - heatmap table — cells colored by the ramp to show intensity (e.g. demand pull by tier).
 - charts — `donut_block(segs,top,bot,legend,title=)` + `bars_chart([(x,value,label)...],title=)` +
   `heatmap_block([corner,col…],[(row,[v…])…],title=)` (v ∈ Low/Med/High/Win/—); flat, no gridlines,
@@ -62,8 +62,9 @@ Color is rationed: navy structure + grays, blue/sky as small high-value accents.
 1. **`.pad` reserves bottom clearance** (`padding:40px 50px 48px`) so content never hits the footer.
 2. **Footer is absolute** at the bottom; **notes/READ use `margin-top:auto`** → identical bottom
    position on every page.
-3. **Fill the page.** Sparse content → `align-content:space-evenly` (prose grid) or `table.fill`
-   (stretch rows). Never leave >30% bottom whitespace.
+3. **Fill by composition, not by stretching.** Sparse prose → `space-evenly`; sparse tables →
+   `extra=` content (heroes stat strip / widened READ) or more rows from deeper research. Stretching
+   an element to hide thin content is cheating; >30% whitespace means the page needs more CONTENT.
 4. **No mid-word truncation** — `clipw(s,n)` cuts at a word boundary and adds "…" only if shortened.
 5. **Images:** `.prodimg img{object-fit:contain;mix-blend-mode:multiply}` blends a white-bg cutout
    invisibly onto the white slide. Every image gets a `.cap` italic caption.

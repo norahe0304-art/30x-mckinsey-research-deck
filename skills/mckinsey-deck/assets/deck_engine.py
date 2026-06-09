@@ -82,8 +82,10 @@ ul.clean li{font-size:11.5px;line-height:1.5;color:var(--ink);padding-left:15px;
 ul.clean li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;background:var(--ink)}
 ul.clean li b{color:var(--navy)}
 .themes{display:grid;gap:22px 52px;align-content:space-evenly;flex:1}
-table.fill{flex:1}
-table tr:first-child{height:34px}   /* 表头定高 — 拉伸全部给数据行 */
+/* 行高神圣: 表头 34px, 数据行 52px, 全 deck 一致 — 填页靠内容组合, 不靠拉伸 */
+table tr:first-child{height:34px}
+table.uni tr{height:52px}
+table.uni td{vertical-align:middle}
 table.fill td{vertical-align:middle}
 .theme .h{font-size:var(--thfs,13.5px);font-weight:700;color:var(--navy);margin-bottom:7px;font-family:var(--sans)}
 .theme p{font-size:var(--tfs,12.5px);line-height:var(--tlh,1.8);color:var(--ink)}
@@ -240,15 +242,11 @@ def answer_slide(title, deck, governing, pillars, src, note=None):
     return (f'<div class="slide"><div class="pad">{head(title, deck)}'
             f'<div class="body" style="display:flex;flex-direction:column;margin-top:6px">{gov}{grid}{extra}</div></div>{foot(src, pg)}</div>')
 
-def table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys=()):
+def table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys=(), extra=None):
     # rows = [[c0, c1, ...], ...]; bold_keys = substrings that mark a highlighted total/result row.
-    # 行数自适应: 行少 → 字大一档 + 行高封顶 (规格表节奏), 行多 → 紧凑; 表头永远定高。
+    # 行高神圣: 表头 34px / 数据行 52px (class="uni"), 永不拉伸。稀疏页用 extra 传内容部件
+    # (heroes 数据条 / 加宽 READ) 填页 — fill by composition, not by stretching. fill 仅保留兼容。
     pg = PG[0]; PG[0] += 1
-    nrows = len(rows)
-    tdfs, tdpad, maxrh = (('11.5px', '14px 12px', 96) if nrows <= 5 else
-                          ('10.5px', '11px 9px', 64) if nrows <= 9 else
-                          ('10px', '7px 9px', 48))
-    tsty = f'--tdfs:{tdfs};--tdpad:{tdpad};max-height:{34 + nrows * maxrh}px' 
     th = "".join(f'<th{"" if i == 0 else " class=c"}>{e(c)}</th>' for i, c in enumerate(columns))
     trs = ""
     for r in rows:
@@ -257,14 +255,13 @@ def table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys
         tds = ""
         for i, c in enumerate(r):
             base = 'k' if i == 0 else 'c'
-            extra = ';font-weight:700;color:var(--navy)' if hl else ''
-            tds += f'<td class="{base}" style="padding:6px 9px;font-size:10.5px{extra}">{e(c)}</td>'
+            hlsty = ';font-weight:700;color:var(--navy)' if hl else ''
+            tds += f'<td class="{base}" style="padding:6px 9px;font-size:10.5px{hlsty}">{e(c)}</td>'
         trs += f'<tr{rst}>{tds}</tr>'
-    cls = f' class="fill" style="{tsty}"' if fill else f' style="{tsty}"'
-    table = f'<table{cls}><tr>{th}</tr>{trs}</table>'
-    extra = f'<div class="imp" style="margin-top:auto"><b>Read.</b> {e(note)}</div>' if note else ""
+    table = f'<table class="uni"><tr>{th}</tr>{trs}</table>' + (extra or "")
+    bottom = f'<div class="imp" style="margin-top:auto"><b>Read.</b> {e(note)}</div>' if note else ""
     return (f'<div class="slide"><div class="pad">{head(title, deck)}'
-            f'<div class="body" style="display:flex;flex-direction:column;margin-top:14px">{table}{extra}</div></div>{foot(src, pg)}</div>')
+            f'<div class="body" style="display:flex;flex-direction:column;margin-top:14px">{table}{bottom}</div></div>{foot(src, pg)}</div>')
 
 def _chart_title(t):
     # Chart titles are ALWAYS centered above the chart (sits on the chart's vertical axis).
