@@ -40,8 +40,10 @@ Color is rationed: navy structure + grays, blue/sky as small high-value accents.
 - hero stat strip `heroes([(num,label)...])` — 4-up serif numbers with hairline dividers.
 - `prose_slide(...)` — "bold theme + flowing paragraph" blocks in a grid, `space-evenly` to fill.
 - `essay_slide(...)` — flowing two-column prose + a side rail (donut + stat tiles + SO WHAT).
-- table slides — navy header row, hairline separators, first column bold navy; `table.fill` to
-  stretch rows and fill a sparse page.
+- table slides — navy header row, hairline separators, first column bold navy. **Header height is
+  fixed (34px) on every table — it never participates in stretching.** Rows auto-tier by count:
+  ≤5 rows → 11.5px type, generous padding, row-height cap ~96px (deliberate spec-sheet rhythm);
+  6–9 → default; 10+ → compact. `table.fill` stretches data rows within these caps.
 - heatmap table — cells colored by the ramp to show intensity (e.g. demand pull by tier).
 - charts — `donut_block(segs,top,bot,legend,title=)` + `bars_chart([(x,value,label)...],title=)` +
   `heatmap_block([corner,col…],[(row,[v…])…],title=)` (v ∈ Low/Med/High/Win/—); flat, no gridlines,

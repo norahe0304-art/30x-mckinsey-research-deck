@@ -83,6 +83,7 @@ ul.clean li::before{content:"";position:absolute;left:0;top:7px;width:5px;height
 ul.clean li b{color:var(--navy)}
 .themes{display:grid;gap:22px 52px;align-content:space-evenly;flex:1}
 table.fill{flex:1}
+table tr:first-child{height:34px}   /* 表头定高 — 拉伸全部给数据行 */
 table.fill td{vertical-align:middle}
 .theme .h{font-size:var(--thfs,13.5px);font-weight:700;color:var(--navy);margin-bottom:7px;font-family:var(--sans)}
 .theme p{font-size:var(--tfs,12.5px);line-height:var(--tlh,1.8);color:var(--ink)}
@@ -95,7 +96,7 @@ table.fill td{vertical-align:middle}
 table{border-collapse:collapse;width:100%}
 th{background:var(--navy);color:#fff;font-size:10px;font-weight:600;text-align:left;padding:9px 9px;letter-spacing:.02em}
 th.c{text-align:center}
-td{font-size:10.5px;padding:11px 9px;border-bottom:1px solid var(--hair);color:var(--ink);vertical-align:top}
+td{font-size:var(--tdfs,10.5px);padding:var(--tdpad,11px 9px);border-bottom:1px solid var(--hair);color:var(--ink);vertical-align:top}
 td.k{font-weight:600;color:var(--navy)}
 td.c{text-align:center}
 .cell{color:#fff;font-weight:600;text-align:center}
@@ -241,7 +242,13 @@ def answer_slide(title, deck, governing, pillars, src, note=None):
 
 def table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys=()):
     # rows = [[c0, c1, ...], ...]; bold_keys = substrings that mark a highlighted total/result row.
+    # 行数自适应: 行少 → 字大一档 + 行高封顶 (规格表节奏), 行多 → 紧凑; 表头永远定高。
     pg = PG[0]; PG[0] += 1
+    nrows = len(rows)
+    tdfs, tdpad, maxrh = (('11.5px', '14px 12px', 96) if nrows <= 5 else
+                          ('10.5px', '11px 9px', 64) if nrows <= 9 else
+                          ('10px', '7px 9px', 48))
+    tsty = f'--tdfs:{tdfs};--tdpad:{tdpad};max-height:{34 + nrows * maxrh}px' 
     th = "".join(f'<th{"" if i == 0 else " class=c"}>{e(c)}</th>' for i, c in enumerate(columns))
     trs = ""
     for r in rows:
@@ -253,7 +260,7 @@ def table_slide(title, deck, columns, rows, src, note=None, fill=True, bold_keys
             extra = ';font-weight:700;color:var(--navy)' if hl else ''
             tds += f'<td class="{base}" style="padding:6px 9px;font-size:10.5px{extra}">{e(c)}</td>'
         trs += f'<tr{rst}>{tds}</tr>'
-    cls = ' class="fill"' if fill else ''
+    cls = f' class="fill" style="{tsty}"' if fill else f' style="{tsty}"'
     table = f'<table{cls}><tr>{th}</tr>{trs}</table>'
     extra = f'<div class="imp" style="margin-top:auto"><b>Read.</b> {e(note)}</div>' if note else ""
     return (f'<div class="slide"><div class="pad">{head(title, deck)}'
