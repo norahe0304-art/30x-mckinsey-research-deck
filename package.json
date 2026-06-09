@@ -1,0 +1,33 @@
+{
+  "name": "30x-mckinsey-deck",
+  "version": "1.0.0",
+  "description": "McKinsey-grade market research deck skills for Claude Code — adversarially verified numbers, 15 McKinsey methodologies as executable workflow, multi-agent pipeline. 一条指令产出敢被挑战的麦肯锡级市场研究 deck。",
+  "bin": {
+    "30x-mckinsey-deck": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "README.md"
+  ],
+  "keywords": [
+    "claude-code",
+    "claude-skills",
+    "agent-skills",
+    "mckinsey",
+    "market-research",
+    "deck",
+    "presentation",
+    "consulting",
+    "multi-agent",
+    "30x"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norahe0304-art/30x-mckinsey-deck.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.7.0"
+  }
+}

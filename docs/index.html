@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>McKinsey-Style Market Research Deck — Skill 介绍</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#051C2C; --blue:#1F6FB2; --sky:#5AA9E0; --ink:#23272E;
+  --mute:#7B8593; --hair:#E3E6EB; --bg:#FFFFFF; --wash:#F4F7FA;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.8;font-size:15px}
+.wrap{max-width:880px;margin:0 auto;padding:0 32px}
+
+/* ── hero ── */
+.hero{background:var(--navy);color:#fff;padding:96px 0 84px;position:relative;overflow:hidden}
+.hero .accent{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--blue)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.25;max-width:760px}
+.hero h1 .b{color:var(--sky)}
+.hero .sub{font-family:var(--serif);font-style:italic;font-size:18px;color:#C7D2DE;margin-top:22px;max-width:680px;line-height:1.7}
+.hero .one{margin-top:34px;font-size:14px;color:#9FB1C4;border-left:2px solid var(--sky);padding-left:16px;max-width:620px}
+
+/* ── stat band ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--hair)}
+.stat{padding:34px 8px 30px;text-align:left;border-top:2px solid var(--navy)}
+.stat+.stat{margin-left:28px}
+.stat .n{font-family:var(--serif);font-size:34px;color:var(--blue);line-height:1.1}
+.stat .l{font-size:12px;color:var(--mute);margin-top:6px;line-height:1.5}
+
+/* ── sections ── */
+section{padding:64px 0 8px}
+h2{font-family:var(--serif);font-weight:400;font-size:27px;color:var(--navy);line-height:1.4;margin-bottom:8px}
+.deck{font-size:14px;color:var(--mute);margin-bottom:26px}
+.hr{height:1px;background:var(--navy);margin:14px 0 28px}
+p{margin-bottom:14px}
+p b,li b{color:var(--navy);font-weight:600}
+em{font-family:var(--serif)}
+
+/* ── tables ── */
+table{width:100%;border-collapse:collapse;margin:18px 0 30px;font-size:13.5px}
+th{background:var(--navy);color:#fff;text-align:left;font-weight:600;padding:10px 14px;font-size:12.5px}
+td{padding:11px 14px;border-bottom:1px solid var(--hair);vertical-align:top;line-height:1.65}
+td:first-child{font-weight:600;color:var(--navy);white-space:nowrap}
+tr.hl{background:#EAF1F8}
+
+/* ── quality system cards ── */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px 40px;margin:26px 0 30px}
+.card{border-top:2px solid var(--navy);padding-top:14px}
+.card .no{font-family:var(--serif);font-size:26px;color:var(--sky);line-height:1}
+.card h3{font-size:15px;color:var(--navy);margin:8px 0 8px;font-weight:700}
+.card p{font-size:13.5px;line-height:1.75;margin-bottom:8px}
+
+/* ── case ── */
+.case{background:var(--wash);padding:26px 30px;margin:10px 0 16px;border-left:3px solid var(--blue)}
+.case .t{font-weight:700;color:var(--navy);font-size:14.5px}
+.case p{font-size:13.5px;margin:8px 0 0}
+
+/* ── read note ── */
+.read{background:var(--wash);border-left:3px solid var(--navy);padding:18px 24px;margin:26px 0;font-size:13.5px}
+.read b{color:var(--navy)}
+
+/* ── usage ── */
+pre{background:var(--navy);color:#D6E4F0;padding:20px 26px;font-size:14px;margin:18px 0 24px;
+    font-family:ui-monospace,'SF Mono',Menlo,monospace;border-radius:0;line-height:1.7;overflow-x:auto}
+pre .c{color:#5AA9E0}
+
+/* ── thesis ── */
+.thesis{background:var(--navy);color:#fff;padding:84px 0;margin-top:72px;position:relative}
+.thesis .accent{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--blue)}
+.thesis h2{color:#fff;font-size:30px;max-width:760px;margin-bottom:0;line-height:1.5}
+.thesis h2 .b{color:var(--sky)}
+.thesis .cond{margin-top:26px;font-size:13px;color:#9FB1C4;max-width:680px}
+
+/* ── footer ── */
+.foot{padding:26px 0 60px;font-size:11.5px;color:var(--mute);line-height:1.8}
+.foot b{color:var(--navy)}
+
+@media (max-width:760px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat+.stat{margin-left:0}
+  .stat{margin:0 10px}
+  .grid2{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="accent"></div>
+  <div class="wrap">
+    <h1>一条指令，产出一份<span class="b">敢被挑战</span>的麦肯锡级市场研究 deck</h1>
+    <div class="sub">McKinsey-Style Market Research Deck — 不是 PPT 模板，是一条完整的研究生产线：方法论、视觉系统、渲染引擎、质量门禁，全部编码成可执行的流程。</div>
+    <div class="one">输入：「帮我做一份 XX 的市场研究 deck」<br>输出：26+ 页 HTML 翻页演示 + 印刷级 PDF，每个数字带编号来源，决策页经过对抗性验证。</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><div class="n">26+</div><div class="l">页完整论证<br>封面到源注册表</div></div>
+    <div class="stat"><div class="n">6+</div><div class="l">个 agent 并行编排<br>分析师 × 3 + 对抗验证者 × 3</div></div>
+    <div class="stat"><div class="n">15</div><div class="l">条麦肯锡方法论<br>全部落成可执行流程</div></div>
+    <div class="stat"><div class="n">≥1.5</div><div class="l">每内容页独立来源下限<br>≥50% 一手源与具名研究</div></div>
+  </div>
+</div>
+
+<div class="wrap">
+<section>
+  <h2>它产出的不是幻灯片，是一篇只读标题就能成立的论证</h2>
+  <div class="deck">七段式脊柱，金字塔原理：答案先行，其余全是证明</div>
+  <div class="hr"></div>
+  <table>
+    <tr><th style="width:170px">部分</th><th>内容</th></tr>
+    <tr><td>§0 The Answer</td><td>执行摘要：一句话答案 + 3–4 根支柱结论，通过 30 秒电梯测试；页面上的每个数字与后文验证后的决策页逐一对账</td></tr>
+    <tr><td>§1 市场</td><td>规模、增速、与重新定义这个品类的结构性转变</td></tr>
+    <tr><td>§2 竞争格局</td><td>Good / Better / Best 阶梯 + 逐玩家画像 + 能力热力图</td></tr>
+    <tr><td>§3 产品 / 模块</td><td>每个子品类一页：竞品价格阶梯 + 有据可查的痛点 + 主体产品线</td></tr>
+    <tr><td>§4 痛点</td><td>用户原话级证据，每条标注来源场合</td></tr>
+    <tr><td>§5 机会</td><td>痛点 → 产品方向，按可防御性排序</td></tr>
+    <tr class="hl"><td>§6 方案 + 决策页</td><td><b>三页可查算术</b>：自底向上市场规模（TAM/SAM/SOM）、单位经济、商业案例 — 这是"机会扫描"和"决策文档"的分水岭</td></tr>
+    <tr><td>源注册表</td><td>每个 URL 编号、PDF 内可点击、与正文数字一一对应</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>四套互相咬合的质量系统，是它和 AI 做图工具的本质区别</h2>
+  <div class="deck">市面工具生成"好看的话题标签页"；这条生产线生成"敢被挑战的论证文档"</div>
+  <div class="hr"></div>
+  <div class="grid2">
+    <div class="card"><div class="no">01</div><h3>真方法论，不是贴标签</h3>
+      <p><b>Day-1 假设</b>先于研究写下，让研究去证伪它 — 假设被推翻时 deck 公开承认。<b>Ghost deck</b> 先写纯标题大纲，跑横向逻辑测试：只读标题必须连成一篇 SCQA 短文，不合格的页面在排版前就被砍掉。</p></div>
+    <div class="card"><div class="no">02</div><h3>对抗性验证 — 最值钱的部分</h3>
+      <p>决策页由<b>分析师 agent</b> 产出（每行算式可查），再交给<b>怀疑论 EM agent</b> 重新推导每个数字：查重复计算、查单位混淆、专杀过于乐观的转化率、毛利与回本期。<b>敢输出难看的数字</b>，是这套系统的灵魂。</p></div>
+    <div class="card"><div class="no">03</div><h3>Source Bar 来源门禁</h3>
+      <p>四级分级：T1 一手源（厂商定价页 / 财报 / repo 数据）&gt; T2 具名研究 &gt; T3 实践者原帖 &gt; T4 SEO 聚合站。价格只认 T1；市场规模至少 T2；痛点必须有真人原话；承重假设双源或明标 judgment call；<b>禁止塞凑数 URL</b>。</p></div>
+    <div class="card"><div class="no">04</div><h3>不过 QC 不出门</h3>
+      <p>麦肯锡级视觉语言开箱即得 — 拿到手就是能直接进会议室的版面。交付前强制程序化自检：逐页渲染目检、源注册连续性校验、§0 数字与验证后决策页逐一对账。<b>它先挑剔自己，再见你的老板。</b></p></div>
+  </div>
+</section>
+
+<section>
+  <h2>十五条麦肯锡方法论，每一条都落成了可执行的流程</h2>
+  <div class="deck">不是引用名词 — 每条方法论对应一个 phase、一条硬性法则或一个 QC 检查项</div>
+  <div class="hr"></div>
+  <table>
+    <tr><th style="width:215px">方法论</th><th>在 skill 里落在哪</th></tr>
+    <tr><td>金字塔原理</td><td>§0 The Answer：答案先行，3–4 根支柱支撑，全 deck 是它的证明</td></tr>
+    <tr><td>SCQA 叙事弧</td><td>Governing thought 按"情境-冲突-问题-答案"压缩成一句话</td></tr>
+    <tr><td>Ghost deck / dot-dash 故事线</td><td>Phase 1.5：先写纯标题大纲再排版，不合格页面在花排版功夫前砍掉</td></tr>
+    <tr><td>横向逻辑</td><td>只读全部标题必须连成一篇短文 — 交付前程序化抽出标题复检</td></tr>
+    <tr><td>纵向逻辑</td><td>§0 每根支柱必须被后文证明；§0 数字与验证后决策页机器对账</td></tr>
+    <tr><td>Action titles</td><td>硬性法则：标题必须是完整结论句，永远不是话题标签</td></tr>
+    <tr><td>MECE</td><td>子品类必须无重叠、无遗漏地切分整个品类（schema 强制）</td></tr>
+    <tr class="hl"><td>假设驱动 / Day-1 answer</td><td>研究前先写答案草稿让研究证伪；被推翻就在 deck 里公开承认</td></tr>
+    <tr><td>80 / 20</td><td>研究深度由假设导向：只深挖能确认或杀死假设的分支</td></tr>
+    <tr><td>电梯测试</td><td>交付门禁：§0 + 论点页必须 30 秒独立卖出结论</td></tr>
+    <tr class="hl"><td>自底向上 Market Sizing</td><td>乘法链算出 TAM/SAM/SOM；top-down 只做一致性校验，禁止当答案</td></tr>
+    <tr><td>Good / Better / Best</td><td>§2 竞争阶梯与 §6 产品线设计的统一框架</td></tr>
+    <tr><td>竞争反应压力测试</td><td>麦肯锡市场进入研究（60% 失败死于低估竞争）→ 保守情景必须点名对手反击</td></tr>
+    <tr><td>"So what?" 纪律</td><td>每个 exhibit 以 READ / SO WHAT 收尾；只装饰不承重的图表被砍</td></tr>
+    <tr><td>诚实规则</td><td>假设全标注、承重假设单独点名、冲突口径调和不平均、报防守得住的数字</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>价值点全集 — 它到底替你做了什么</h2>
+  <div class="deck">五组能力，每一条都在实测案例里兑现过</div>
+  <div class="hr"></div>
+  <div class="grid2">
+    <div class="card"><div class="no">A</div><h3>查得到的都有来源，算出来的都被重算过</h3>
+      <p>每个数字被两张安全网之一罩着：<b>事实类</b>（规模 / 价格 / 采用率）→ Source Bar 门禁，一手来源 + 采集日期；<b>推导类</b>（TAM / 毛利 / 回本期）→ 对抗验证流水线重推。外加闭环：§0 摘要数字与验证后决策页机器对账。</p></div>
+    <div class="card"><div class="no">B</div><h3>多 agent 编排（内置 Workflow）</h3>
+      <p style="margin-bottom:10px"><b>分析师 agent</b>（强制 JSON schema 输出，每行算式可查）<br>↓<br><b>对抗验证 agent</b>（重推每个数字 · 查重复计算 · 查单位混淆 · 杀乐观偏差）<br>↓<br><b>验证后落盘</b>（独立 JSON，可审计、可复跑）</p>
+      <p>三页决策并行走完这条流水线 — 不是单模型一口气写完，是真正的多角色生产线。</p></div>
+    <div class="card"><div class="no">C</div><h3>工程可靠</h3>
+      <p>单一数据真相源（data.json）：整个 deck 是它的确定性渲染，改数即可重出 · 单一引擎真相源：一处修复全局生效 · 程序化 QC + 已知缺陷对照表 · 三种品类原型开箱即用，词汇互不串味</p></div>
+    <div class="card"><div class="no">D</div><h3>诚实性 — 最稀缺的价值点</h3>
+      <p>假设被证伪会公开写在 §0 第一句 · 结论可以是"不要做"或"阶段性下注 + kill gate" · deck 自带能力边界声明 — <b>它不为了好看而撒谎</b></p></div>
+    <div class="card" style="grid-column:1/-1"><div class="no">E</div><h3>流程自动</h3>
+      <p>一句指令端到端：研究 → 故事线 → 渲染 → 多 agent 验证 → 配图 → QC → 交付 · 联网研究自动落进数据文件 · 缺图自动生成 handoff 文档给任意图像工具</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>两个实测案例 — 包括一个结论"不好看"的</h2>
+  <div class="deck">能输出 kill gate 的工具，才配输出 GO</div>
+  <div class="hr"></div>
+  <div class="case">
+    <div class="t">Figmint — Target 厨具自有品牌（实物商品原型）</div>
+    <p>44 SKU 产品线决策，<b>175 个编号来源</b>。到岸成本建模到金属含量级的关税敞口；结论 GO，~$5M 投入对 Target $30B 自有品牌盘子约 13 个月回本。</p>
+  </div>
+  <div class="case">
+    <div class="t">Swall — 开源 agent 管理平台（OSS 原型）</div>
+    <p>26 页 launch 决策，38 个来源（74% 一手 / 具名研究）。对抗验证把团队渗透率从 40% 砍到 25%、star 转化率从 0.5 砍到 0.2 — 3 年 SOM 落在 <b>$0.78M ARR</b>，deck 照实输出，结论改写为<b>「阶段性下注 + 第 12 个月 kill gate」</b>。它没有为了好看而撒谎。</p>
+  </div>
+</section>
+
+<section>
+  <h2>骨架通用，算术按品类分叉，词汇互不串味</h2>
+  <div class="deck">SaaS 页面上不会出现"货架价"，开源页面上不会出现"COGS"</div>
+  <div class="hr"></div>
+  <table>
+    <tr><th style="width:150px">原型</th><th>决策页算术</th><th style="width:170px">适用</th></tr>
+    <tr><td>实物商品</td><td>货架价阶梯 → 到岸成本（关税建模到金属含量）→ 毛利</td><td>厨具、家居、消费品</td></tr>
+    <tr><td>SaaS</td><td>套餐 / ACV → CAC → 回本期 → 用量毛利</td><td>订阅软件</td></tr>
+    <tr><td>OSS / 服务</td><td>采用漏斗 → 付费转化 → 单 logo 贡献</td><td>开源项目、咨询、方法论产品</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>怎么用 — 真的只有一句</h2>
+  <div class="hr"></div>
+  <pre><span class="c">你:</span> 帮我做一份 XX 的麦肯锡市场研究 deck</pre>
+  <p>流程自动走完：Scope + Day-1 假设 → 联网研究落进单一数据文件（每个数字带 sourceUrl 与采集日期）→ ghost deck 故事线 → 渲染 → Workflow 对抗性验证决策页 → 配图 → QC → 交付 HTML + PDF。</p>
+  <p style="font-size:13.5px;color:var(--mute)">环境要求：Claude Code + 联网搜索 + Chrome（headless 导出 PDF）。封面图可选 — 给一张深蓝底图最佳，没有就程序化生成。配套 skill：<b style="color:var(--navy)">mckinsey-deck</b>（轻量版，只排版不研究，持有唯一渲染引擎，一处修复全局生效）。</p>
+  <div class="read"><b>诚实声明（这也是方法论的一部分）。</b>这是桌面研究生产线：输出 defensible estimates，不是 diligence。没有专家访谈、没有一手内部数据，承重假设全部明标。拿去做内部决策、融资叙事、给正式研究当 80% 起点 — 非常好用。直接当尽调签字 — 不行，它自己会在 deck 里告诉你不行。</div>
+</section>
+</div>
+
+<div class="thesis">
+  <div class="accent"></div>
+  <div class="wrap">
+    <h2>AI 可以一秒生成一百页好看的废话。<br>这条生产线选择了另一条路：<span class="b">每个数字都准备好被人扣下扳机。</span></h2>
+    <div class="cond">SKILL.md（流程主干）· methodology.md（研究方法 + source bar + 决策页算术）· design-system.md（视觉契约）· qc-checklist.md（交付门禁）· 引擎 deck_engine.py 由 mckinsey-deck skill 持有</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="foot"><b>MCKINSEY-STYLE MARKET RESEARCH DECK</b> &nbsp;·&nbsp; 一个 Claude Code skill &nbsp;·&nbsp; 实测案例：Figmint（175 源）/ Swall（38 源，74% T1+T2）</div>
+</div>
+
+</body>
+</html>
