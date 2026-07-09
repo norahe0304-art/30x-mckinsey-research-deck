@@ -1,7 +1,7 @@
 # 30x-mckinsey-research-deck
 
 > **一条指令，产出一份敢被挑战的麦肯锡级市场研究 deck。**
-> McKinsey-grade market research decks for Claude Code — adversarially verified numbers, 15 McKinsey methodologies as an executable workflow, built-in multi-agent pipeline.
+> 这是一个 **Claude Code Skill**（安装进 Claude Code 会话里用，不是独立运行的 CLI 工具）——不需要单独的 API key，研究和 deck 生成全部发生在 Claude Code 会话内部（复用会话自带的模型访问），不是你在终端里单独调用的脚本。内置 adversarially verified numbers、15 套麦肯锡方法论的可执行工作流、多 agent pipeline。
 
 ## 安装
 
@@ -37,7 +37,7 @@ npx 30x-mckinsey-research-deck --project  # 只装进当前项目 ./.claude/skil
 | **§6 方案** | 定位、定价、产品线，**加三页决策页**（自底向上市场规模 / 单位经济 / 商业案例），最后是论点页 |
 | **源注册表** | 每个 URL 编号、可点击、与正文逐一对应 |
 
-实测案例：
+内部实测 run（internal test run，非可下载的公开案例文件）：
 - **Figmint**（Target 厨具自有品牌，实物商品原型）：44 SKU 产品线决策，175 个源
 - **Swall**（开源 agent 管理平台，OSS 原型）：26 页 launch 决策，38 个源，3 年 SOM 算出来只有 $0.78M——**它没有为了好看而撒谎，结论是"阶段性下注 + 第 12 个月 kill gate"**
 
